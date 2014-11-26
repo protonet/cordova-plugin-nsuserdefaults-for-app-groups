@@ -17,4 +17,30 @@ If you like to share some variables between your main app and an share extension
 
 The Plugin is only for iOS.
 
-### comming soon
+### Save in UserDefaults
+
+    var options = {
+          key: "foo",
+          value: "bar",
+          suite: "group.cats.catsAreAwesome"};
+
+    window.AppGroupsUserDefaults.save(options,
+      function() {
+         // success
+      }, function() {
+        // failed
+      });
+
+### Load from UserDefaults
+
+    var options = {
+          key: "foo",
+          suite: "group.cats.catsAreAwesome"};
+
+    window.AppGroupsUserDefaults.load(options,
+      function(result) {
+       // success
+       console.log("Result:", result)
+      }, function() {
+        // failed
+      });
