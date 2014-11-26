@@ -1,0 +1,19 @@
+# NSUserData Plugin for App Groups #
+By: Protonet GmbH
+Authors: Joschka Schulz
+
+## Adding the Plugin ##
+
+Use the Cordova CLI and type in the following command:
+
+`cordova plugin add https://github.com/protonet/cordova-plugin-nsuserdefaults-for-app-groups.git`
+
+## Description
+
+If you like to share some variables between your main app and an share extension, you need to save your variables in a NSUserData container. The NSUserData container can be shared between your both apps and hold all the data you want to transfer.
+
+## Sample Code
+
+The Plugin is only for iOS.
+
+### comming soon
