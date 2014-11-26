@@ -16,5 +16,5 @@ AppGroupsUserDefaults.prototype.load = function(options, success, fail) {
   }, "AppGroupsUserDefaults", "load", [options]);
 };
 
-var imageResizer = new AppGroupsUserDefaults();
-module.exports = imageResizer;
+var appGroupsUserDefaults = new AppGroupsUserDefaults();
+module.exports = appGroupsUserDefaults;
