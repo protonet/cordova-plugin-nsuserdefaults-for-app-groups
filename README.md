@@ -10,7 +10,7 @@ Use the Cordova CLI and type in the following command:
 
 ## Description
 
-If you like to share some variables between your main app and an share extension, you need to save your variables in a NSUserData container. The NSUserData container can be shared between your both apps and hold all the data you want to transfer.
+If you like to share some variables between your main app and an share extension, you need to save your variables in a NSUserDefaults container. The NSUserData container can be shared between your both apps and hold all the data you want to transfer.
 
 ## Sample Code
 
