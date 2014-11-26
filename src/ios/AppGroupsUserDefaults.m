@@ -14,12 +14,12 @@
 
     // do the magic
     NSUserDefaults *prefs = [[NSUserDefaults alloc] initWithSuiteName:suite];
-    [prefs setString:value forKey:key];
+    [prefs setObject:value forKey:key];
     [prefs synchronize];
 
     // give the callback
     CDVPluginResult* result = nil;
-    if([[prefs integerForKey:key] isEqualToString:value])
+    if([[prefs stringForKey:key] isEqualToString:value])
     {
       result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
@@ -37,11 +37,11 @@
 
     // do more magic
     NSUserDefaults *prefs = [[NSUserDefaults alloc] initWithSuiteName:suite];
-    NSString* callbackResult = [prefs integerForKey:key];
+    NSString* callbackResult = [prefs stringForKey:key];
 
     // give the callback
     CDVPluginResult* result = nil;
-    if([[prefs integerForKey:key] isEqualToString:value])
+    if([[prefs stringForKey:key] isEqualToString:value])
     {
       result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:callbackResult];
     } else {
