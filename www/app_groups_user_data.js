@@ -5,7 +5,15 @@ AppGroupsUserDefaults.prototype.save = function(options, success, fail) {
     success();
   }, function() {
     fail();
-  }, "AppGroupsUserDefaults", "resize", [options]);
+  }, "AppGroupsUserDefaults", "save", [options]);
+};
+
+AppGroupsUserDefaults.prototype.load = function(options, success, fail) {
+  cordova.exec(function() {
+    success();
+  }, function() {
+    fail();
+  }, "AppGroupsUserDefaults", "load", [options]);
 };
 
 var imageResizer = new AppGroupsUserDefaults();
