@@ -1,5 +1,6 @@
 # NSUserDefaults Plugin for App Groups #
 By: Protonet GmbH
+
 Authors: Joschka Schulz
 
 ## Adding the Plugin ##

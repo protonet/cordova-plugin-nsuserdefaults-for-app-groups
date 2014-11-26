@@ -9,16 +9,44 @@
     // load the options
     NSDictionary* arguments = [command.arguments objectAtIndex:0];
     NSString* key = [arguments objectForKey:@"key"];
-    NSString* key = [arguments objectForKey:@"value"];
+    NSString* value = [arguments objectForKey:@"value"];
+    NSString* suite = [arguments objectForKey:@"suite"];
 
     // do the magic
-
-    // { magic }
+    NSUserDefaults *prefs = [[NSUserDefaults alloc] initWithSuiteName:suite];
+    [prefs setString:value forKey:key];
+    [prefs synchronize];
 
     // give the callback
-    //result = [CDVPluginResult resultWithStatus:CDVCommandStatus_IO_EXCEPTION];
     CDVPluginResult* result = nil;
-    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    if([[prefs integerForKey:key] isEqualToString:value])
+    {
+      result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    } else {
+      result = [CDVPluginResult resultWithStatus:CDVCommandStatus_IO_EXCEPTION];
+    }
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void) load:(CDVInvokedUrlCommand*)command
+{
+    // load the options
+    NSDictionary* arguments = [command.arguments objectAtIndex:0];
+    NSString* key = [arguments objectForKey:@"key"];
+    NSString* suite = [arguments objectForKey:@"suite"];
+
+    // do more magic
+    NSUserDefaults *prefs = [[NSUserDefaults alloc] initWithSuiteName:suite];
+    NSString* callbackResult = [prefs integerForKey:key];
+
+    // give the callback
+    CDVPluginResult* result = nil;
+    if([[prefs integerForKey:key] isEqualToString:value])
+    {
+      result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:callbackResult];
+    } else {
+      result = [CDVPluginResult resultWithStatus:CDVCommandStatus_IO_EXCEPTION];
+    }
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
