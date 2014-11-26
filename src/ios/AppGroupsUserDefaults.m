@@ -41,7 +41,7 @@
 
     // give the callback
     CDVPluginResult* result = nil;
-    if([[prefs stringForKey:key] isEqualToString:value])
+    if(callbackResult != nil)
     {
       result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:callbackResult];
     } else {
