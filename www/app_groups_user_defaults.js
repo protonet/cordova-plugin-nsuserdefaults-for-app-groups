@@ -5,7 +5,7 @@ AppGroupsUserDefaults.prototype.save = function(options, success, fail) {
 };
 
 AppGroupsUserDefaults.prototype.load = function(options, success, fail) {
-  cordova.exec(success(result), fail(), "AppGroupsUserDefaults", "load", [options]);
+  cordova.exec(success, fail, "AppGroupsUserDefaults", "load", [options]);
 };
 
 var appGroupsUserDefaults = new AppGroupsUserDefaults();
